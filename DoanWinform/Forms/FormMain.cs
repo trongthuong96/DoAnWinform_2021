@@ -32,7 +32,7 @@ namespace DoanWinform
         // hóa đơn
         private void OrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmOrder frmOrder = new frmOrder();
+            frmOrder frmOrder = new frmOrder(maNV);
             frmOrder.MdiParent = this;
             frmOrder.Show();
         }
@@ -56,8 +56,10 @@ namespace DoanWinform
         }
 
         // Ẩn hiện nút khi đăng nhập
-        private void FrmLogin_DangNhapThanhCong()
+        string maNV;
+        private void FrmLogin_DangNhapThanhCong(string maNV)
         {
+            this.maNV = maNV;
             LoginToolStripMenuItem.Visible = false;
             ManageToolStripMenuItem.Visible = true;
             ReportToolStripMenuItem.Visible = true;

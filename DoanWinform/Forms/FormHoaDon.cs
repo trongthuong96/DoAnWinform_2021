@@ -17,10 +17,12 @@ namespace DoanWinform
         List<HoaDon> listInvoice;
         List<SanPham> listProduct;
         List<CTHD> listCTHD;
-        public frmOrder()
+
+        public frmOrder(string maNV)
         {
             InitializeComponent();
             dbContext = new QuanLyBanHang();
+            txtStaffID.Text = maNV;
         }
 
         private void FormHoaDon_Load(object sender, EventArgs e)
@@ -36,12 +38,11 @@ namespace DoanWinform
 
             // combo
             List<KhachHang> listCustomer = dbContext.KhachHangs.ToList();
-            List<NhanVien> listStaff = dbContext.NhanViens.ToList();
-            ShowCombo(listCustomer, listStaff, listInvoice);
+            ShowCombo(listCustomer, listInvoice);
         }
 
         // combobox begin
-        private void ShowCombo(List<KhachHang> listCustomer, List<NhanVien> listStaff, List<HoaDon> listInvoice)
+        private void ShowCombo(List<KhachHang> listCustomer, List<HoaDon> listInvoice)
         {
             cbbCustomerID.DataSource = listCustomer;
             cbbCustomerID.DisplayMember = "MaKH";
@@ -50,10 +51,6 @@ namespace DoanWinform
             cbbCustomerName.DataSource = listCustomer;
             cbbCustomerName.DisplayMember = "TenKH";
             cbbCustomerName.ValueMember = "MaKH";
-
-            cbbStaff.DataSource = listStaff;
-            cbbStaff.DisplayMember = "MaNV";
-            cbbStaff.ValueMember = "MaNV";
 
             cbbInvoiceID.DataSource = listInvoice;
             cbbInvoiceID.DisplayMember = "MaHD";
@@ -171,7 +168,6 @@ namespace DoanWinform
         private void btnFomat_Click(object sender, EventArgs e)
         {
             cbbCustomerID.SelectedIndex = 0;
-            cbbStaff.SelectedIndex = 0;
             dgvOrder.Rows.Clear();
             cbbInvoiceID.SelectedIndex = -1;
             txtSum.Text = "";
@@ -186,7 +182,6 @@ namespace DoanWinform
         // thêm hóa đơn
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //string maHD = txtOrderID.Text.Trim();
             string maHD = cbbInvoiceID.Text.Trim();
             HoaDon hoaDon = listInvoice.FirstOrDefault(m => m.MaHD == maHD);
             if (Checkin())
@@ -195,7 +190,7 @@ namespace DoanWinform
                 {
                     hoaDon = new HoaDon();
                     hoaDon.MaHD = maHD;
-                    hoaDon.MaNV = cbbStaff.Text;
+                    hoaDon.MaNV = txtStaffID.Text;
                     hoaDon.MaKH = cbbCustomerID.Text;
                     hoaDon.NgayLapHD = dtpOrderDate.Value;
 
@@ -239,7 +234,6 @@ namespace DoanWinform
 
             if (hoaDon != null)
             {
-                cbbStaff.Text = hoaDon.MaNV;
                 cbbCustomerID.Text = hoaDon.MaKH;
                 dtpOrderDate.Value = hoaDon.NgayLapHD;
 
@@ -274,7 +268,7 @@ namespace DoanWinform
 
                     if (hoaDon != null)
                     {
-                        hoaDon.MaNV = cbbStaff.Text;
+                        hoaDon.MaNV = txtStaffID.Text;
                         hoaDon.MaKH = cbbCustomerID.Text;
                         hoaDon.NgayLapHD = dtpOrderDate.Value;
 

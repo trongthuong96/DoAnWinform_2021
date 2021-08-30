@@ -15,7 +15,7 @@ namespace DoanWinform
     {
 
         //delegate đăng nhập
-        public delegate void DangNhap();
+        public delegate void DangNhap(string maNV);
         public event DangNhap DangNhapThanhCong;
 
         QuanLyBanHang dbContext;
@@ -49,7 +49,7 @@ namespace DoanWinform
                 {
                     if (StringCipher.Decrypt(taiKhoan.MatKhau, "").Equals(matKhau))
                     {
-                        DangNhapThanhCong();
+                        DangNhapThanhCong(taiKhoan.MaNV);
                         MessageBox.Show("Đăng nhập tài khoản thành công!");
                         this.Close();
                     }

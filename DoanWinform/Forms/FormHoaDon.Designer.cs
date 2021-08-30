@@ -37,7 +37,6 @@ namespace DoanWinform
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbInvoiceID = new System.Windows.Forms.ComboBox();
-            this.cbbStaff = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbCustomerName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@ namespace DoanWinform
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
             this.dgvProductID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgvQuality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +64,7 @@ namespace DoanWinform
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
@@ -116,8 +117,8 @@ namespace DoanWinform
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.txtStaffID);
             this.groupBox1.Controls.Add(this.cbbInvoiceID);
-            this.groupBox1.Controls.Add(this.cbbStaff);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cbbCustomerName);
             this.groupBox1.Controls.Add(this.label2);
@@ -139,22 +140,16 @@ namespace DoanWinform
             // 
             // cbbInvoiceID
             // 
+            this.cbbInvoiceID.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbInvoiceID.FormattingEnabled = true;
             this.cbbInvoiceID.Location = new System.Drawing.Point(134, 45);
             this.cbbInvoiceID.Name = "cbbInvoiceID";
             this.cbbInvoiceID.Size = new System.Drawing.Size(124, 24);
             this.cbbInvoiceID.TabIndex = 11;
             // 
-            // cbbStaff
-            // 
-            this.cbbStaff.FormattingEnabled = true;
-            this.cbbStaff.Location = new System.Drawing.Point(134, 125);
-            this.cbbStaff.Name = "cbbStaff";
-            this.cbbStaff.Size = new System.Drawing.Size(124, 24);
-            this.cbbStaff.TabIndex = 10;
-            // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
@@ -167,6 +162,7 @@ namespace DoanWinform
             // 
             // cbbCustomerName
             // 
+            this.cbbCustomerName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbCustomerName.FormattingEnabled = true;
             this.cbbCustomerName.Location = new System.Drawing.Point(388, 85);
             this.cbbCustomerName.Name = "cbbCustomerName";
@@ -176,6 +172,7 @@ namespace DoanWinform
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
@@ -188,6 +185,7 @@ namespace DoanWinform
             // 
             // cbbCustomerID
             // 
+            this.cbbCustomerID.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbCustomerID.FormattingEnabled = true;
             this.cbbCustomerID.Location = new System.Drawing.Point(134, 85);
             this.cbbCustomerID.Name = "cbbCustomerID";
@@ -197,6 +195,7 @@ namespace DoanWinform
             // 
             // dtpOrderDate
             // 
+            this.dtpOrderDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpOrderDate.CustomFormat = "dd/MM/yyyy";
             this.dtpOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOrderDate.Location = new System.Drawing.Point(387, 45);
@@ -207,6 +206,7 @@ namespace DoanWinform
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
@@ -219,6 +219,7 @@ namespace DoanWinform
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
@@ -350,6 +351,16 @@ namespace DoanWinform
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // txtStaffID
+            // 
+            this.txtStaffID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtStaffID.Enabled = false;
+            this.txtStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffID.Location = new System.Drawing.Point(134, 125);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.Size = new System.Drawing.Size(124, 24);
+            this.txtStaffID.TabIndex = 36;
+            // 
             // dgvProductID
             // 
             this.dgvProductID.HeaderText = "Sản Phẩm";
@@ -382,6 +393,7 @@ namespace DoanWinform
             this.dgvDetail.HeaderText = "Mã CTHD";
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
+            this.dgvDetail.Visible = false;
             // 
             // frmOrder
             // 
@@ -432,13 +444,13 @@ namespace DoanWinform
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbCustomerName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbbStaff;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnFomat;
         private System.Windows.Forms.ComboBox cbbInvoiceID;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgvProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQuality;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;

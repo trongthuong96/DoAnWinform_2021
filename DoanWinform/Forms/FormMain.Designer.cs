@@ -108,7 +108,6 @@ namespace DoanWinform
             // 
             // thoátToolStripMenuItem1
             // 
-            this.thoátToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem1.Image")));
             this.thoátToolStripMenuItem1.Name = "thoátToolStripMenuItem1";
             this.thoátToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
             this.thoátToolStripMenuItem1.Text = "Thoát";
@@ -128,28 +127,28 @@ namespace DoanWinform
             // CustomerToolStripMenuItem
             // 
             this.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem";
-            this.CustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CustomerToolStripMenuItem.Text = "Khách Hàng";
             this.CustomerToolStripMenuItem.Click += new System.EventHandler(this.CustomerToolStripMenuItem_Click);
             // 
             // ProductTypeToolStripMenuItem
             // 
             this.ProductTypeToolStripMenuItem.Name = "ProductTypeToolStripMenuItem";
-            this.ProductTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProductTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ProductTypeToolStripMenuItem.Text = "Loại Sản Phẩm";
             this.ProductTypeToolStripMenuItem.Click += new System.EventHandler(this.ProductTypeToolStripMenuItem_Click);
             // 
             // ProductToolStripMenuItem
             // 
             this.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem";
-            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ProductToolStripMenuItem.Text = "Sản Phẩm";
             this.ProductToolStripMenuItem.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
             // 
             // OrderToolStripMenuItem
             // 
             this.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem";
-            this.OrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OrderToolStripMenuItem.Text = "Hóa Đơn";
             this.OrderToolStripMenuItem.Click += new System.EventHandler(this.OrderToolStripMenuItem_Click);
             // 
@@ -166,13 +165,13 @@ namespace DoanWinform
             // báoCáoDoanhThuToolStripMenuItem
             // 
             this.báoCáoDoanhThuToolStripMenuItem.Name = "báoCáoDoanhThuToolStripMenuItem";
-            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.báoCáoDoanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
             // báoCáoHóaĐơnToolStripMenuItem
             // 
             this.báoCáoHóaĐơnToolStripMenuItem.Name = "báoCáoHóaĐơnToolStripMenuItem";
-            this.báoCáoHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.báoCáoHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.báoCáoHóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             // 
             // hướngDẫnToolStripMenuItem
