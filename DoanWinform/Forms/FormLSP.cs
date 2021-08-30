@@ -129,5 +129,33 @@ namespace DoanWinform.Forms
                 }
             }
         }
+
+        // xóa
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            LoaiSanPham loaiSanPham = listLSP.FirstOrDefault(t => t.MaLSP == txtTypeID.Text.Trim());
+
+            if (loaiSanPham != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa?","Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    dbContext.LoaiSanPhams.Remove(loaiSanPham);
+                    dbContext.SaveChanges();
+
+                    frmProductType_Load(sender, e);
+                    MessageBox.Show("Xóa loại sản phẩm thành công!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy loại sản phẩm!");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

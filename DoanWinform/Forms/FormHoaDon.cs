@@ -16,6 +16,7 @@ namespace DoanWinform
         QuanLyBanHang dbContext;
         List<HoaDon> listInvoice;
         List<SanPham> listProduct;
+        List<CTHD> listCTHD;
         public frmOrder()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace DoanWinform
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
             listInvoice = dbContext.HoaDons.ToList();
-
+            listCTHD = dbContext.CTHDs.ToList();
             // combox data
             listProduct = dbContext.SanPhams.ToList();
 
@@ -36,11 +37,11 @@ namespace DoanWinform
             // combo
             List<KhachHang> listCustomer = dbContext.KhachHangs.ToList();
             List<NhanVien> listStaff = dbContext.NhanViens.ToList();
-            ShowCombo(listCustomer, listStaff);
+            ShowCombo(listCustomer, listStaff, listInvoice);
         }
 
         // combobox begin
-        private void ShowCombo(List<KhachHang> listCustomer, List<NhanVien> listStaff)
+        private void ShowCombo(List<KhachHang> listCustomer, List<NhanVien> listStaff, List<HoaDon> listInvoice)
         {
             cbbCustomerID.DataSource = listCustomer;
             cbbCustomerID.DisplayMember = "MaKH";
@@ -53,6 +54,11 @@ namespace DoanWinform
             cbbStaff.DataSource = listStaff;
             cbbStaff.DisplayMember = "MaNV";
             cbbStaff.ValueMember = "MaNV";
+
+            cbbInvoiceID.DataSource = listInvoice;
+            cbbInvoiceID.DisplayMember = "MaHD";
+            cbbInvoiceID.ValueMember = "MaHD";
+            cbbInvoiceID.SelectedIndex = -1;
         }
 
         private void cbbCustomerID_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,45 +72,7 @@ namespace DoanWinform
         }
         // combobox end
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            string maHD = txtOrderID.Text.Trim();
-            HoaDon hoaDon = listInvoice.FirstOrDefault(m => m.MaHD == maHD);
-            if (Checkin())
-            {
-                if (hoaDon == null)
-                {
-                    hoaDon = new HoaDon();
-                    hoaDon.MaHD = maHD;
-                    hoaDon.MaNV = cbbStaff.Text;
-                    hoaDon.MaKH = cbbCustomerID.Text;
-                    hoaDon.NgayLapHD = dtpOrderDate.Value;
-
-                    dbContext.HoaDons.Add(hoaDon);
-                    dbContext.SaveChanges();
-                    listInvoice = dbContext.HoaDons.ToList();
-
-                    for (int i = 0; i < dgvOrder.Rows.Count - 1; i++)
-                    {
-                        CTHD cthd = new CTHD();
-                        cthd.MaHD = maHD;
-                        cthd.MaSP = dgvOrder.Rows[i].Cells[0].Value.ToString();
-                        cthd.SLMua = int.Parse(dgvOrder.Rows[i].Cells[1].Value.ToString());
-                        cthd.GiaBan = decimal.Parse(dgvOrder.Rows[i].Cells[2].Value.ToString());
-                        cthd.ThanhTien = cthd.SLMua * cthd.GiaBan;
-
-                        dbContext.CTHDs.Add(cthd);
-                        dbContext.SaveChanges();
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Đã có mã hóa đơn này!");
-                    return;
-                }
-            }
-        }
+        
 
         // cell
         int row = 0;
@@ -131,7 +99,7 @@ namespace DoanWinform
         // check rỗng lúc nhập
         private bool Checkin()
         {
-            if(txtOrderID.Text.Trim() == "")
+            if(cbbInvoiceID.Text.Trim() == "")
             {
                 MessageBox.Show("Hãy nhập mã hóa đơn!");
                 return false;
@@ -141,24 +109,23 @@ namespace DoanWinform
                 MessageBox.Show("Hãy chọn ít nhất 1 sản phẩm!");
                 return false;
             }
-
             return true;
         }
 
         private void dgvOrder_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvOrder.Rows[row].Cells != null && dgvOrder.Rows[row].Cells[0].Value != null && dgvOrder.Rows[row].Cells[1].Value == null)
+            try
             {
-                dgvOrder.Rows[row].Cells[1].Value = 1;
-            }
+                if (dgvOrder.Rows[row].Cells != null && dgvOrder.Rows[row].Cells[0].Value != null && dgvOrder.Rows[row].Cells[1].Value == null)
+                {
+                    dgvOrder.Rows[row].Cells[1].Value = 1;
+                }
 
-            if (dgvOrder.Rows[row].Cells != null && dgvOrder.Rows[row].Cells[1].Value != null && dgvOrder.Rows[row].Cells[2].Value != null)
-            {
-                try
+                if (dgvOrder.Rows[row].Cells != null && dgvOrder.Rows[row].Cells[1].Value != null && dgvOrder.Rows[row].Cells[2].Value != null)
                 {
                     string numS = dgvOrder.Rows[row].Cells[1].Value.ToString();
                     int num;
-                    if(int.TryParse(numS, out num) == false || num <= 0)
+                    if (int.TryParse(numS, out num) == false || num <= 0)
                     {
                         MessageBox.Show("Hãy nhập số lượng là số và lớn hơn 0");
                         dgvOrder.Rows[row].Cells[1].Value = 1;
@@ -167,13 +134,13 @@ namespace DoanWinform
                     string a = (int.Parse(dgvOrder.Rows[row].Cells[1].Value.ToString()) * decimal.Parse(dgvOrder.Rows[row].Cells[2].Value.ToString())).ToString();
                     dgvOrder.Rows[row].Cells[3].Value = a;
                     sum();
-                }
-                catch
-                {
-
+                    
                 }
             }
+            catch (Exception)
+            {
 
+            }
             try
             {
                 if (dgvOrder.Rows[row].Cells != null && dgvOrder.Rows[row].Cells[0].Value != null)
@@ -201,7 +168,142 @@ namespace DoanWinform
             cbbCustomerID.SelectedIndex = 0;
             cbbStaff.SelectedIndex = 0;
             dgvOrder.Rows.Clear();
-            txtOrderID.Text = "";
+            cbbInvoiceID.SelectedIndex = -1;
+        }
+
+        // hiện report
+        private void btnShowInvoice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // thêm hóa đơn
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //string maHD = txtOrderID.Text.Trim();
+            string maHD = cbbInvoiceID.Text.Trim();
+            HoaDon hoaDon = listInvoice.FirstOrDefault(m => m.MaHD == maHD);
+            if (Checkin())
+            {
+                if (hoaDon == null)
+                {
+                    hoaDon = new HoaDon();
+                    hoaDon.MaHD = maHD;
+                    hoaDon.MaNV = cbbStaff.Text;
+                    hoaDon.MaKH = cbbCustomerID.Text;
+                    hoaDon.NgayLapHD = dtpOrderDate.Value;
+
+                    dbContext.HoaDons.Add(hoaDon);
+                    dbContext.SaveChanges();
+                    listInvoice = dbContext.HoaDons.ToList();
+
+                    for (int i = 0; i < dgvOrder.Rows.Count - 1; i++)
+                    {
+                        CTHD cthd = new CTHD();
+                        cthd.MaHD = maHD;
+                        cthd.MaSP = dgvOrder.Rows[i].Cells[0].Value.ToString();
+                        cthd.SLMua = int.Parse(dgvOrder.Rows[i].Cells[1].Value.ToString());
+                        cthd.GiaBan = decimal.Parse(dgvOrder.Rows[i].Cells[2].Value.ToString());
+                        cthd.ThanhTien = cthd.SLMua * cthd.GiaBan;
+                        dgvOrder.Rows[i].Cells[4].Value = cthd.MaCTHD.ToString();
+
+                        dbContext.CTHDs.Add(cthd);
+                        dbContext.SaveChanges();
+                    }
+                    listCTHD = dbContext.CTHDs.ToList();
+                    listInvoice = dbContext.HoaDons.ToList();
+                    cbbInvoiceID.DataSource = listInvoice;
+
+                    MessageBox.Show("Đã tạo xong hóa đơn!");
+                }
+                else
+                {
+                    MessageBox.Show("Đã có mã hóa đơn này!");
+                    return;
+                }
+            }
+        }
+
+        // tìm hóa đơn
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvOrder.Rows.Clear();
+            string maHD = cbbInvoiceID.Text.Trim();
+            HoaDon hoaDon = listInvoice.FirstOrDefault(m => m.MaHD == maHD);
+
+            if (hoaDon != null)
+            {
+                cbbStaff.Text = hoaDon.MaNV;
+                cbbCustomerID.Text = hoaDon.MaKH;
+                dtpOrderDate.Value = hoaDon.NgayLapHD;
+
+                List<CTHD> tempCTHD = listCTHD.Where(m => m.MaHD == maHD).ToList();
+                int index;
+                foreach(CTHD cthd in tempCTHD)
+                {
+                    index = dgvOrder.Rows.Add();
+                    dgvOrder.Rows[index].Cells[0].Value = cthd.MaSP.ToString();
+                    dgvOrder.Rows[index].Cells[1].Value = cthd.SLMua.ToString();
+                    dgvOrder.Rows[index].Cells[2].Value = Math.Round(cthd.GiaBan).ToString();
+                    dgvOrder.Rows[index].Cells[3].Value = Math.Round(cthd.SLMua * cthd.GiaBan).ToString();
+                    dgvOrder.Rows[index].Cells[4].Value = cthd.MaCTHD.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có hóa đơn này!");
+                return;
+            }
+        }
+
+        // sửa
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Checkin())
+            {
+                int maCTHD;
+                bool a = false;
+                string maHD = cbbInvoiceID.SelectedValue.ToString();
+                List<CTHD> tempCTHD = listCTHD.Where(m => m.MaHD == maHD).ToList();
+
+                for(int i = 0; i < dgvOrder.Rows.Count - 1; i++)
+                {
+                    if (dgvOrder.Rows[i].Cells[4].Value == null)
+                    {
+                        maCTHD = -1;
+                    }
+                    else
+                    {
+
+                        a = int.TryParse(dgvOrder.Rows[i].Cells[4].Value.ToString(), out maCTHD);
+                    }
+
+                    CTHD cthd = listCTHD.FirstOrDefault(m => m.MaCTHD == maCTHD);
+                    if(cthd != null)
+                    {
+                        cthd.SLMua = int.Parse(dgvOrder.Rows[i].Cells[1].Value.ToString());
+                        cthd.GiaBan = decimal.Parse(dgvOrder.Rows[i].Cells[2].Value.ToString());
+                        cthd.ThanhTien = cthd.SLMua * cthd.GiaBan;
+                    }
+                    else
+                    {
+                        cthd = new CTHD();
+                        cthd.MaHD = maHD;
+                        cthd.MaSP = dgvOrder.Rows[i].Cells[0].Value.ToString();
+                        cthd.SLMua = int.Parse(dgvOrder.Rows[i].Cells[1].Value.ToString());
+                        cthd.GiaBan = decimal.Parse(dgvOrder.Rows[i].Cells[2].Value.ToString());
+                        cthd.ThanhTien = cthd.SLMua * cthd.GiaBan;
+                        dgvOrder.Rows[i].Cells[4].Value = cthd.MaCTHD.ToString();
+
+                        dbContext.CTHDs.Add(cthd);
+                    }
+                    dbContext.SaveChanges();
+                }
+                listCTHD = dbContext.CTHDs.ToList();
+                listInvoice = dbContext.HoaDons.ToList();
+                cbbInvoiceID.DataSource = listInvoice;
+                MessageBox.Show("Đã sửa xong hóa đơn!");
+            }
         }
     }
 }

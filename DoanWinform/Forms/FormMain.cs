@@ -61,7 +61,7 @@ namespace DoanWinform
             LoginToolStripMenuItem.Visible = false;
             ManageToolStripMenuItem.Visible = true;
             ReportToolStripMenuItem.Visible = true;
-            RegisterToolStripMenuItem.Visible = true;
+            RegisterToolStripMenuItem.Visible = false;
             LogoutToolStripMenuItem.Visible = true;
         }
 
@@ -88,7 +88,7 @@ namespace DoanWinform
             dbContext = null;
             ManageToolStripMenuItem.Visible = false;
             ReportToolStripMenuItem.Visible = false;
-            RegisterToolStripMenuItem.Visible = false;
+            RegisterToolStripMenuItem.Visible = true;
             LogoutToolStripMenuItem.Visible = false;
             LoginToolStripMenuItem.Visible = true;
         }

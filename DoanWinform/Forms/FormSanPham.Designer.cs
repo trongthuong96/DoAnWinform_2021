@@ -31,7 +31,15 @@ namespace DoanWinform
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
             this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.dgvNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQuanlityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxProduct = new System.Windows.Forms.PictureBox();
             this.cbbProductType = new System.Windows.Forms.ComboBox();
@@ -52,13 +60,6 @@ namespace DoanWinform
             this.btnDelete = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dgvNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvQuanlityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProduct)).BeginInit();
@@ -105,6 +106,53 @@ namespace DoanWinform
             this.dgvProduct.Size = new System.Drawing.Size(1027, 285);
             this.dgvProduct.TabIndex = 7;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
+            // 
+            // dgvNumber
+            // 
+            this.dgvNumber.FillWeight = 32.09441F;
+            this.dgvNumber.HeaderText = "STT";
+            this.dgvNumber.MinimumWidth = 6;
+            this.dgvNumber.Name = "dgvNumber";
+            // 
+            // dgvProductID
+            // 
+            this.dgvProductID.FillWeight = 33.09433F;
+            this.dgvProductID.HeaderText = "Mã SP";
+            this.dgvProductID.MinimumWidth = 6;
+            this.dgvProductID.Name = "dgvProductID";
+            // 
+            // dgvProductType
+            // 
+            this.dgvProductType.FillWeight = 113.335F;
+            this.dgvProductType.HeaderText = "Loại SP";
+            this.dgvProductType.Name = "dgvProductType";
+            // 
+            // dgvProductName
+            // 
+            this.dgvProductName.FillWeight = 120.0331F;
+            this.dgvProductName.HeaderText = "Tên Sản Phẩm";
+            this.dgvProductName.MinimumWidth = 6;
+            this.dgvProductName.Name = "dgvProductName";
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.FillWeight = 120.0331F;
+            this.dgvPrice.HeaderText = "Giá SP";
+            this.dgvPrice.MinimumWidth = 6;
+            this.dgvPrice.Name = "dgvPrice";
+            // 
+            // dgvQuanlityInStock
+            // 
+            this.dgvQuanlityInStock.FillWeight = 120.0331F;
+            this.dgvQuanlityInStock.HeaderText = "Số Lượng Tồn";
+            this.dgvQuanlityInStock.MinimumWidth = 6;
+            this.dgvQuanlityInStock.Name = "dgvQuanlityInStock";
+            // 
+            // dgvDetail
+            // 
+            this.dgvDetail.FillWeight = 113.335F;
+            this.dgvDetail.HeaderText = "Chi Tiết SP";
+            this.dgvDetail.Name = "dgvDetail";
             // 
             // groupBox1
             // 
@@ -312,7 +360,7 @@ namespace DoanWinform
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(382, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -333,57 +381,11 @@ namespace DoanWinform
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // dgvNumber
-            // 
-            this.dgvNumber.FillWeight = 32.09441F;
-            this.dgvNumber.HeaderText = "STT";
-            this.dgvNumber.MinimumWidth = 6;
-            this.dgvNumber.Name = "dgvNumber";
-            // 
-            // dgvProductID
-            // 
-            this.dgvProductID.FillWeight = 33.09433F;
-            this.dgvProductID.HeaderText = "Mã SP";
-            this.dgvProductID.MinimumWidth = 6;
-            this.dgvProductID.Name = "dgvProductID";
-            // 
-            // dgvProductType
-            // 
-            this.dgvProductType.FillWeight = 113.335F;
-            this.dgvProductType.HeaderText = "Loại SP";
-            this.dgvProductType.Name = "dgvProductType";
-            // 
-            // dgvProductName
-            // 
-            this.dgvProductName.FillWeight = 120.0331F;
-            this.dgvProductName.HeaderText = "Tên Sản Phẩm";
-            this.dgvProductName.MinimumWidth = 6;
-            this.dgvProductName.Name = "dgvProductName";
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.FillWeight = 120.0331F;
-            this.dgvPrice.HeaderText = "Giá SP";
-            this.dgvPrice.MinimumWidth = 6;
-            this.dgvPrice.Name = "dgvPrice";
-            // 
-            // dgvQuanlityInStock
-            // 
-            this.dgvQuanlityInStock.FillWeight = 120.0331F;
-            this.dgvQuanlityInStock.HeaderText = "Số Lượng Tồn";
-            this.dgvQuanlityInStock.MinimumWidth = 6;
-            this.dgvQuanlityInStock.Name = "dgvQuanlityInStock";
-            // 
-            // dgvDetail
-            // 
-            this.dgvDetail.FillWeight = 113.335F;
-            this.dgvDetail.HeaderText = "Chi Tiết SP";
-            this.dgvDetail.Name = "dgvDetail";
-            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1027, 585);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label5);
@@ -392,6 +394,7 @@ namespace DoanWinform
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

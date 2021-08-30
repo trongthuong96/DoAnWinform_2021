@@ -87,11 +87,6 @@ namespace DoanWinform.Models
                 .Property(e => e.MaNV)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<HoaDon>()
-                .HasMany(e => e.CTHDs)
-                .WithRequired(e => e.HoaDon)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<KhachHang>()
                 .Property(e => e.MaKH)
                 .IsUnicode(false);

@@ -87,22 +87,21 @@ namespace DoanWinform
             // 
             this.LoginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LoginToolStripMenuItem.Image")));
             this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
-            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.LoginToolStripMenuItem.Text = "Đăng Nhập";
             this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click);
             // 
             // RegisterToolStripMenuItem
             // 
             this.RegisterToolStripMenuItem.Name = "RegisterToolStripMenuItem";
-            this.RegisterToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.RegisterToolStripMenuItem.Text = "Tạo Tài Khoản Cho Nhân Viên";
-            this.RegisterToolStripMenuItem.Visible = false;
+            this.RegisterToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.RegisterToolStripMenuItem.Text = "Đăng Ký";
             this.RegisterToolStripMenuItem.Click += new System.EventHandler(this.RegisterToolStripMenuItem_Click);
             // 
             // LogoutToolStripMenuItem
             // 
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.LogoutToolStripMenuItem.Text = "Đăng Xuất";
             this.LogoutToolStripMenuItem.Visible = false;
             this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
@@ -111,7 +110,7 @@ namespace DoanWinform
             // 
             this.thoátToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem1.Image")));
             this.thoátToolStripMenuItem1.Name = "thoátToolStripMenuItem1";
-            this.thoátToolStripMenuItem1.Size = new System.Drawing.Size(234, 26);
+            this.thoátToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
             this.thoátToolStripMenuItem1.Text = "Thoát";
             // 
             // ManageToolStripMenuItem
@@ -129,28 +128,28 @@ namespace DoanWinform
             // CustomerToolStripMenuItem
             // 
             this.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem";
-            this.CustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.CustomerToolStripMenuItem.Text = "Khách Hàng";
             this.CustomerToolStripMenuItem.Click += new System.EventHandler(this.CustomerToolStripMenuItem_Click);
             // 
             // ProductTypeToolStripMenuItem
             // 
             this.ProductTypeToolStripMenuItem.Name = "ProductTypeToolStripMenuItem";
-            this.ProductTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProductTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ProductTypeToolStripMenuItem.Text = "Loại Sản Phẩm";
             this.ProductTypeToolStripMenuItem.Click += new System.EventHandler(this.ProductTypeToolStripMenuItem_Click);
             // 
             // ProductToolStripMenuItem
             // 
             this.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem";
-            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ProductToolStripMenuItem.Text = "Sản Phẩm";
             this.ProductToolStripMenuItem.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
             // 
             // OrderToolStripMenuItem
             // 
             this.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem";
-            this.OrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OrderToolStripMenuItem.Text = "Hóa Đơn";
             this.OrderToolStripMenuItem.Click += new System.EventHandler(this.OrderToolStripMenuItem_Click);
             // 
@@ -167,13 +166,13 @@ namespace DoanWinform
             // báoCáoDoanhThuToolStripMenuItem
             // 
             this.báoCáoDoanhThuToolStripMenuItem.Name = "báoCáoDoanhThuToolStripMenuItem";
-            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.báoCáoDoanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
             // báoCáoHóaĐơnToolStripMenuItem
             // 
             this.báoCáoHóaĐơnToolStripMenuItem.Name = "báoCáoHóaĐơnToolStripMenuItem";
-            this.báoCáoHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.báoCáoHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.báoCáoHóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             // 
             // hướngDẫnToolStripMenuItem
@@ -262,9 +261,13 @@ namespace DoanWinform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DoanWinform.Properties.Resources.back2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1027, 575);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);

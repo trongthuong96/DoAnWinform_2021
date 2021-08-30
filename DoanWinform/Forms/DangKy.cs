@@ -42,10 +42,24 @@ namespace DoanWinform.Forms
                 }
 
                 // kiểm tra xem tài khoản tồn tại chưa
-                TaiKhoan taiKhoan = dbContext.TaiKhoans.FirstOrDefault(t => t.TenDangNhap.Equals(tenTK));
+                TaiKhoan taiKhoan = dbContext.TaiKhoans.FirstOrDefault(t => t.MaNV.Equals(txtStaffID.Text.Trim()));
                 if (taiKhoan == null)
                 {
+                    NhanVien nhanVien = dbContext.NhanViens.FirstOrDefault(n => n.MaNV == txtStaffID.Text.Trim());
+
+                    if (nhanVien == null)
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng mã nhân viên!");
+                        return;
+                    }
+                    if(dbContext.TaiKhoans.Any(t => t.TenDangNhap == txtAccountName.Text.Trim()))
+                    {
+                        MessageBox.Show("Trùng tên đăng nhập!");
+                        return;
+                    }
+
                     taiKhoan = new TaiKhoan();
+                    taiKhoan.MaNV = txtStaffID.Text.Trim();
                     taiKhoan.TenDangNhap = tenTK;
                     taiKhoan.MatKhau = StringCipher.Encrypt(matKhau,"");
 
@@ -57,7 +71,7 @@ namespace DoanWinform.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Đã có tên tài khoản này. Vui lòng nhập tên khác!");
+                    MessageBox.Show("Nhân viên đã có tài khoản!");
                 }
             }
             catch (Exception)

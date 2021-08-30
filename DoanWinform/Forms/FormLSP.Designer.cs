@@ -31,6 +31,7 @@ namespace DoanWinform.Forms
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductType));
             this.label1 = new System.Windows.Forms.Label();
             this.txtTypeName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@ namespace DoanWinform.Forms
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 9);
+            this.label1.Location = new System.Drawing.Point(42, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 36);
             this.label1.TabIndex = 0;
@@ -61,9 +62,9 @@ namespace DoanWinform.Forms
             // txtTypeName
             // 
             this.txtTypeName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTypeName.Location = new System.Drawing.Point(133, 131);
+            this.txtTypeName.Location = new System.Drawing.Point(158, 133);
             this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(100, 20);
+            this.txtTypeName.Size = new System.Drawing.Size(95, 20);
             this.txtTypeName.TabIndex = 1;
             // 
             // label2
@@ -71,7 +72,7 @@ namespace DoanWinform.Forms
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 132);
+            this.label2.Location = new System.Drawing.Point(69, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 19);
             this.label2.TabIndex = 2;
@@ -105,9 +106,9 @@ namespace DoanWinform.Forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProductType.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductType.Location = new System.Drawing.Point(310, 5);
+            this.dgvProductType.Location = new System.Drawing.Point(310, 12);
             this.dgvProductType.Name = "dgvProductType";
-            this.dgvProductType.Size = new System.Drawing.Size(257, 325);
+            this.dgvProductType.Size = new System.Drawing.Size(257, 318);
             this.dgvProductType.TabIndex = 3;
             this.dgvProductType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductType_CellClick);
             // 
@@ -132,7 +133,7 @@ namespace DoanWinform.Forms
             // btnInsertUpdate
             // 
             this.btnInsertUpdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnInsertUpdate.Location = new System.Drawing.Point(26, 198);
+            this.btnInsertUpdate.Location = new System.Drawing.Point(25, 184);
             this.btnInsertUpdate.Name = "btnInsertUpdate";
             this.btnInsertUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnInsertUpdate.TabIndex = 4;
@@ -143,29 +144,31 @@ namespace DoanWinform.Forms
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnDelete.Location = new System.Drawing.Point(204, 198);
+            this.btnDelete.Location = new System.Drawing.Point(217, 184);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancel.Location = new System.Drawing.Point(112, 253);
+            this.btnCancel.Location = new System.Drawing.Point(121, 239);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtTypeID
             // 
             this.txtTypeID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTypeID.Location = new System.Drawing.Point(133, 85);
+            this.txtTypeID.Location = new System.Drawing.Point(158, 85);
             this.txtTypeID.Name = "txtTypeID";
-            this.txtTypeID.Size = new System.Drawing.Size(100, 20);
+            this.txtTypeID.Size = new System.Drawing.Size(95, 20);
             this.txtTypeID.TabIndex = 8;
             // 
             // label3
@@ -173,7 +176,7 @@ namespace DoanWinform.Forms
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(36, 84);
+            this.label3.Location = new System.Drawing.Point(71, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 19);
             this.label3.TabIndex = 9;
@@ -182,7 +185,7 @@ namespace DoanWinform.Forms
             // btnEdit
             // 
             this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnEdit.Location = new System.Drawing.Point(112, 198);
+            this.btnEdit.Location = new System.Drawing.Point(121, 184);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 10;
@@ -194,17 +197,19 @@ namespace DoanWinform.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(579, 342);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTypeID);
+            this.Controls.Add(this.dgvProductType);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnInsertUpdate);
-            this.Controls.Add(this.dgvProductType);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtTypeID);
             this.Controls.Add(this.txtTypeName);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProductType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loại sản phẩm";
