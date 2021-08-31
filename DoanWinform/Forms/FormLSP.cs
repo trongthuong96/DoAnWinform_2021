@@ -104,53 +104,62 @@ namespace DoanWinform.Forms
         // sửa
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (CheckProductType())
+            try
+            {
+                if (CheckProductType())
+                {
+                    LoaiSanPham loaiSanPham = listLSP.FirstOrDefault(t => t.MaLSP == txtTypeID.Text.Trim());
+
+                    if (loaiSanPham != null)
+                    {
+                        if (listLSP.Any(t => t.TenLoaiSP == txtTypeName.Text.Trim() && t.TenLoaiSP != loaiSanPham.TenLoaiSP))
+                        {
+                            MessageBox.Show("Trùng tên loại sản phẩm");
+                            return;
+                        }
+
+                        loaiSanPham.TenLoaiSP = txtTypeName.Text.Trim();
+
+                        dbContext.SaveChanges();
+
+                        frmProductType_Load(sender, e);
+                        MessageBox.Show("Sửa loại sản phẩm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy loại sản phẩm!");
+                    }
+                }
+            }
+            catch (Exception) { }
+        }
+
+        // xóa
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
             {
                 LoaiSanPham loaiSanPham = listLSP.FirstOrDefault(t => t.MaLSP == txtTypeID.Text.Trim());
 
                 if (loaiSanPham != null)
                 {
-                    if (listLSP.Any(t=>t.TenLoaiSP == txtTypeName.Text.Trim() && t.TenLoaiSP != loaiSanPham.TenLoaiSP))
+                    DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("Trùng tên loại sản phẩm");
-                        return;
+                        dbContext.LoaiSanPhams.Remove(loaiSanPham);
+                        dbContext.SaveChanges();
+
+                        frmProductType_Load(sender, e);
+                        MessageBox.Show("Xóa loại sản phẩm thành công!");
                     }
-
-                    loaiSanPham.TenLoaiSP = txtTypeName.Text.Trim();
-
-                    dbContext.SaveChanges();
-
-                    frmProductType_Load(sender, e);
-                    MessageBox.Show("Sửa loại sản phẩm thành công!");
                 }
                 else
                 {
                     MessageBox.Show("Không tìm thấy loại sản phẩm!");
                 }
             }
-        }
-
-        // xóa
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            LoaiSanPham loaiSanPham = listLSP.FirstOrDefault(t => t.MaLSP == txtTypeID.Text.Trim());
-
-            if (loaiSanPham != null)
-            {
-                DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa?","Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    dbContext.LoaiSanPhams.Remove(loaiSanPham);
-                    dbContext.SaveChanges();
-
-                    frmProductType_Load(sender, e);
-                    MessageBox.Show("Xóa loại sản phẩm thành công!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy loại sản phẩm!");
-            }
+            catch (Exception) { }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
