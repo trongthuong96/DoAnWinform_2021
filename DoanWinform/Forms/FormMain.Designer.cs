@@ -29,6 +29,7 @@ namespace DoanWinform
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.chọnChứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +49,12 @@ namespace DoanWinform
             this.toolStripBtnCustomer = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnProduct = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -81,7 +86,7 @@ namespace DoanWinform
             // 
             this.LoginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LoginToolStripMenuItem.Image")));
             this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
-            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.LoginToolStripMenuItem.Text = "Đăng Nhập";
             this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click);
             // 
@@ -89,7 +94,7 @@ namespace DoanWinform
             // 
             this.RegisterToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("RegisterToolStripMenuItem.Image")));
             this.RegisterToolStripMenuItem.Name = "RegisterToolStripMenuItem";
-            this.RegisterToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.RegisterToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.RegisterToolStripMenuItem.Text = "Đăng Ký";
             this.RegisterToolStripMenuItem.Click += new System.EventHandler(this.RegisterToolStripMenuItem_Click);
             // 
@@ -97,7 +102,7 @@ namespace DoanWinform
             // 
             this.LogoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogoutToolStripMenuItem.Image")));
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.LogoutToolStripMenuItem.Text = "Đăng Xuất";
             this.LogoutToolStripMenuItem.Visible = false;
             this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
@@ -105,7 +110,7 @@ namespace DoanWinform
             // ExitToolStripMenuItem1
             // 
             this.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1";
-            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
+            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.ExitToolStripMenuItem1.Text = "Thoát";
             this.ExitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItem1_Click);
             // 
@@ -219,6 +224,27 @@ namespace DoanWinform
             this.toolStripButton5.Text = "In";
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 553);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1027, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +252,7 @@ namespace DoanWinform
             this.BackgroundImage = global::DoanWinform.Properties.Resources.back2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1027, 575);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -242,6 +269,8 @@ namespace DoanWinform
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,6 +296,9 @@ namespace DoanWinform
         private System.Windows.Forms.ToolStripMenuItem ProductTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripBtnCustomer;
         private System.Windows.Forms.ToolStripButton toolStripBtnProduct;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

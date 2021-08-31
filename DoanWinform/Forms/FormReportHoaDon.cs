@@ -50,8 +50,20 @@ namespace DoanWinform.Forms
             }
 
 
-            reportViewer1.LocalReport.ReportPath = "./Report/ReportHoaDon.rdlc";
+            ReportParameter[] param = new ReportParameter[1];
+            HoaDon hoaDon = dbContext.HoaDons.FirstOrDefault(t => t.MaHD == txtInvoiceID.Text);
+            if (hoaDon != null)
+            {
+                param[0] = new ReportParameter("NgayLapHD", string.Format("Ngày lập hóa đơn " + hoaDon.NgayLapHD.ToString("dd/MM/yyyy")));
+            }
+            else
+            {
+                param[0] = new ReportParameter("NgayLapHD","1");
+            }
 
+
+            reportViewer1.LocalReport.ReportPath = "./Report/ReportHoaDon.rdlc";
+            reportViewer1.LocalReport.SetParameters(param);
             ReportDataSource reportDataSource = new ReportDataSource("DataSetHoaDon", listHoaDonReport);
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(reportDataSource);

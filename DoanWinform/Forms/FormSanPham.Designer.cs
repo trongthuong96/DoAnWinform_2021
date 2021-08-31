@@ -398,7 +398,7 @@ namespace DoanWinform
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormQuanLySanPham";
+            this.Text = "Thông Tin Sản Phẩm";
             this.Load += new System.EventHandler(this.frmProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.groupBox1.ResumeLayout(false);

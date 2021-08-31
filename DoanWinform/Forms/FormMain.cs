@@ -152,5 +152,11 @@ namespace DoanWinform
         {
             this.Close();
         }
+
+        // hiển thị giờ
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.toolStripStatusLabel1.Text = string.Format("Ngày {0} - Giờ {1}", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm:ss tt"));
+        }
     }
 }

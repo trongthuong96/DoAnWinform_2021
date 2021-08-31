@@ -79,12 +79,6 @@
     <Compile Include="Forms\DangKy.Designer.cs">
       <DependentUpon>DangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormCTHD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormCTHD.Designer.cs">
-      <DependentUpon>FormCTHD.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,9 +140,6 @@
     <Compile Include="StringCipher.cs" />
     <EmbeddedResource Include="Forms\DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormCTHD.resx">
-      <DependentUpon>FormCTHD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormHoaDon.resx">
       <DependentUpon>FormHoaDon.cs</DependentUpon>

@@ -64,7 +64,7 @@ namespace DoanWinform.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportHoaDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReportHoaDon";
+            this.Text = "Xuất Hóa Đơn";
             this.Load += new System.EventHandler(this.FormReportHoaDon_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
