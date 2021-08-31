@@ -35,23 +35,18 @@ namespace DoanWinform
             this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProductTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoDoanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnCustomer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnProduct = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -63,7 +58,6 @@ namespace DoanWinform
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chọnChứcNăngToolStripMenuItem,
             this.ManageToolStripMenuItem,
-            this.ReportToolStripMenuItem,
             this.hướngDẫnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -78,7 +72,7 @@ namespace DoanWinform
             this.LoginToolStripMenuItem,
             this.RegisterToolStripMenuItem,
             this.LogoutToolStripMenuItem,
-            this.thoátToolStripMenuItem1});
+            this.ExitToolStripMenuItem1});
             this.chọnChứcNăngToolStripMenuItem.Name = "chọnChứcNăngToolStripMenuItem";
             this.chọnChứcNăngToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.chọnChứcNăngToolStripMenuItem.Text = "Chức Năng";
@@ -93,6 +87,7 @@ namespace DoanWinform
             // 
             // RegisterToolStripMenuItem
             // 
+            this.RegisterToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("RegisterToolStripMenuItem.Image")));
             this.RegisterToolStripMenuItem.Name = "RegisterToolStripMenuItem";
             this.RegisterToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.RegisterToolStripMenuItem.Text = "Đăng Ký";
@@ -100,17 +95,19 @@ namespace DoanWinform
             // 
             // LogoutToolStripMenuItem
             // 
+            this.LogoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogoutToolStripMenuItem.Image")));
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
             this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.LogoutToolStripMenuItem.Text = "Đăng Xuất";
             this.LogoutToolStripMenuItem.Visible = false;
             this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
             // 
-            // thoátToolStripMenuItem1
+            // ExitToolStripMenuItem1
             // 
-            this.thoátToolStripMenuItem1.Name = "thoátToolStripMenuItem1";
-            this.thoátToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
-            this.thoátToolStripMenuItem1.Text = "Thoát";
+            this.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1";
+            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
+            this.ExitToolStripMenuItem1.Text = "Thoát";
+            this.ExitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItem1_Click);
             // 
             // ManageToolStripMenuItem
             // 
@@ -126,53 +123,35 @@ namespace DoanWinform
             // 
             // CustomerToolStripMenuItem
             // 
+            this.CustomerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CustomerToolStripMenuItem.Image")));
             this.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem";
-            this.CustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.CustomerToolStripMenuItem.Text = "Khách Hàng";
             this.CustomerToolStripMenuItem.Click += new System.EventHandler(this.CustomerToolStripMenuItem_Click);
             // 
             // ProductTypeToolStripMenuItem
             // 
+            this.ProductTypeToolStripMenuItem.Image = global::DoanWinform.Properties.Resources.book;
             this.ProductTypeToolStripMenuItem.Name = "ProductTypeToolStripMenuItem";
-            this.ProductTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProductTypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ProductTypeToolStripMenuItem.Text = "Loại Sản Phẩm";
             this.ProductTypeToolStripMenuItem.Click += new System.EventHandler(this.ProductTypeToolStripMenuItem_Click);
             // 
             // ProductToolStripMenuItem
             // 
+            this.ProductToolStripMenuItem.Image = global::DoanWinform.Properties.Resources.Shopping_Full;
             this.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem";
-            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ProductToolStripMenuItem.Text = "Sản Phẩm";
             this.ProductToolStripMenuItem.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
             // 
             // OrderToolStripMenuItem
             // 
+            this.OrderToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("OrderToolStripMenuItem.Image")));
             this.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem";
-            this.OrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OrderToolStripMenuItem.Text = "Hóa Đơn";
             this.OrderToolStripMenuItem.Click += new System.EventHandler(this.OrderToolStripMenuItem_Click);
-            // 
-            // ReportToolStripMenuItem
-            // 
-            this.ReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.báoCáoDoanhThuToolStripMenuItem,
-            this.báoCáoHóaĐơnToolStripMenuItem});
-            this.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem";
-            this.ReportToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.ReportToolStripMenuItem.Text = "Báo Cáo";
-            this.ReportToolStripMenuItem.Visible = false;
-            // 
-            // báoCáoDoanhThuToolStripMenuItem
-            // 
-            this.báoCáoDoanhThuToolStripMenuItem.Name = "báoCáoDoanhThuToolStripMenuItem";
-            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.báoCáoDoanhThuToolStripMenuItem.Text = "Doanh thu";
-            // 
-            // báoCáoHóaĐơnToolStripMenuItem
-            // 
-            this.báoCáoHóaĐơnToolStripMenuItem.Name = "báoCáoHóaĐơnToolStripMenuItem";
-            this.báoCáoHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.báoCáoHóaĐơnToolStripMenuItem.Text = "Hóa đơn";
             // 
             // hướngDẫnToolStripMenuItem
             // 
@@ -199,10 +178,8 @@ namespace DoanWinform
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
+            this.toolStripBtnCustomer,
+            this.toolStripBtnProduct,
             this.toolStripButton5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -210,45 +187,31 @@ namespace DoanWinform
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripBtnCustomer
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 39);
-            this.toolStripButton1.Text = "Thông Tin Khách Hàng";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripBtnCustomer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnCustomer.Enabled = false;
+            this.toolStripBtnCustomer.Image = global::DoanWinform.Properties.Resources.user;
+            this.toolStripBtnCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnCustomer.Name = "toolStripBtnCustomer";
+            this.toolStripBtnCustomer.Size = new System.Drawing.Size(24, 39);
+            this.toolStripBtnCustomer.Text = "Khách Hàng";
+            this.toolStripBtnCustomer.Click += new System.EventHandler(this.CustomerToolStripMenuItem_Click);
             // 
-            // toolStripButton2
+            // toolStripBtnProduct
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(41, 39);
-            this.toolStripButton2.Text = "Thêm";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(31, 39);
-            this.toolStripButton3.Text = "Xóa";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(61, 39);
-            this.toolStripButton4.Text = "Tìm Kiếm";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripBtnProduct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnProduct.Enabled = false;
+            this.toolStripBtnProduct.Image = global::DoanWinform.Properties.Resources.Shopping_Full;
+            this.toolStripBtnProduct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnProduct.Name = "toolStripBtnProduct";
+            this.toolStripBtnProduct.Size = new System.Drawing.Size(24, 39);
+            this.toolStripBtnProduct.Text = "Sản Phẩm";
+            this.toolStripBtnProduct.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
             // 
             // toolStripButton5
             // 
+            this.toolStripButton5.Enabled = false;
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
@@ -289,26 +252,21 @@ namespace DoanWinform
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem chọnChứcNăngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LoginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ManageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OrderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoDoanhThuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoHóaĐơnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnSửDụngToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripMenuItem RegisterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LogoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ProductTypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripBtnCustomer;
+        private System.Windows.Forms.ToolStripButton toolStripBtnProduct;
     }
 }
 

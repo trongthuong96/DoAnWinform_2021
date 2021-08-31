@@ -36,6 +36,7 @@ namespace DoanWinform
             this.btnShowInvoice = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
             this.cbbInvoiceID = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbCustomerName = new System.Windows.Forms.ComboBox();
@@ -45,6 +46,11 @@ namespace DoanWinform
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvOrder = new System.Windows.Forms.DataGridView();
+            this.dgvProductID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgvQuality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSum = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -52,12 +58,6 @@ namespace DoanWinform
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtStaffID = new System.Windows.Forms.TextBox();
-            this.dgvProductID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgvQuality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +97,7 @@ namespace DoanWinform
             this.btnShowInvoice.Name = "btnShowInvoice";
             this.btnShowInvoice.Size = new System.Drawing.Size(107, 26);
             this.btnShowInvoice.TabIndex = 24;
-            this.btnShowInvoice.Text = "Xem hóa đơn";
+            this.btnShowInvoice.Text = "Xuất hóa đơn";
             this.btnShowInvoice.UseVisualStyleBackColor = true;
             this.btnShowInvoice.Click += new System.EventHandler(this.btnShowInvoice_Click);
             // 
@@ -137,6 +137,16 @@ namespace DoanWinform
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Chung";
+            // 
+            // txtStaffID
+            // 
+            this.txtStaffID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtStaffID.Enabled = false;
+            this.txtStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffID.Location = new System.Drawing.Point(134, 125);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.Size = new System.Drawing.Size(124, 24);
+            this.txtStaffID.TabIndex = 36;
             // 
             // cbbInvoiceID
             // 
@@ -264,9 +274,43 @@ namespace DoanWinform
             this.dgvOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellClick);
             this.dgvOrder.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellValueChanged);
             // 
+            // dgvProductID
+            // 
+            this.dgvProductID.HeaderText = "Sản Phẩm";
+            this.dgvProductID.Name = "dgvProductID";
+            this.dgvProductID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dgvQuality
+            // 
+            this.dgvQuality.HeaderText = "Số Lượng";
+            this.dgvQuality.MinimumWidth = 6;
+            this.dgvQuality.Name = "dgvQuality";
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.HeaderText = "Đơn giá";
+            this.dgvPrice.MinimumWidth = 6;
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Thành Tiền";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // dgvDetail
+            // 
+            this.dgvDetail.HeaderText = "Mã CTHD";
+            this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.ReadOnly = true;
+            this.dgvDetail.Visible = false;
+            // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(682, 523);
@@ -278,7 +322,7 @@ namespace DoanWinform
             // 
             // txtSum
             // 
-            this.txtSum.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtSum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSum.Enabled = false;
             this.txtSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSum.Location = new System.Drawing.Point(764, 520);
@@ -289,7 +333,7 @@ namespace DoanWinform
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnCancel.Location = new System.Drawing.Point(908, 519);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
@@ -350,50 +394,7 @@ namespace DoanWinform
             this.btnDelete.TabIndex = 35;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // txtStaffID
-            // 
-            this.txtStaffID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtStaffID.Enabled = false;
-            this.txtStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffID.Location = new System.Drawing.Point(134, 125);
-            this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.Size = new System.Drawing.Size(124, 24);
-            this.txtStaffID.TabIndex = 36;
-            // 
-            // dgvProductID
-            // 
-            this.dgvProductID.HeaderText = "Sản Phẩm";
-            this.dgvProductID.Name = "dgvProductID";
-            this.dgvProductID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dgvQuality
-            // 
-            this.dgvQuality.HeaderText = "Số Lượng";
-            this.dgvQuality.MinimumWidth = 6;
-            this.dgvQuality.Name = "dgvQuality";
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.HeaderText = "Đơn giá";
-            this.dgvPrice.MinimumWidth = 6;
-            this.dgvPrice.Name = "dgvPrice";
-            this.dgvPrice.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Thành Tiền";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // dgvDetail
-            // 
-            this.dgvDetail.HeaderText = "Mã CTHD";
-            this.dgvDetail.Name = "dgvDetail";
-            this.dgvDetail.ReadOnly = true;
-            this.dgvDetail.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmOrder
             // 

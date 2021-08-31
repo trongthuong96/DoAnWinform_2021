@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace DoanWinform.Forms
 {
     partial class frmRegister
@@ -29,6 +31,7 @@ namespace DoanWinform.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
             this.label1 = new System.Windows.Forms.Label();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -52,6 +55,7 @@ namespace DoanWinform.Forms
             this.label1.Size = new System.Drawing.Size(101, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đăng Ký";
+            this.label1.BackColor = Color.Transparent;
             // 
             // txtAccountName
             // 
@@ -78,6 +82,7 @@ namespace DoanWinform.Forms
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên Tài Khoản";
+            this.label2.BackColor = Color.Transparent;
             // 
             // label3
             // 
@@ -87,6 +92,7 @@ namespace DoanWinform.Forms
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mật Khẩu";
+            this.label3.BackColor = Color.Transparent;
             // 
             // txtPassword1
             // 
@@ -103,6 +109,7 @@ namespace DoanWinform.Forms
             this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Nhập Lại Mật Khẩu";
+            this.label4.BackColor = Color.Transparent;
             // 
             // txtPassword2
             // 
@@ -120,6 +127,7 @@ namespace DoanWinform.Forms
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            
             // 
             // label5
             // 
@@ -129,6 +137,7 @@ namespace DoanWinform.Forms
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Mã Nhân Viên";
+            this.label5.BackColor = Color.Transparent;
             // 
             // txtStaffID
             // 
@@ -155,6 +164,7 @@ namespace DoanWinform.Forms
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtAccountName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRegister";

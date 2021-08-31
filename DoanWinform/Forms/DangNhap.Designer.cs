@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace DoanWinform
 {
     partial class frmLogin
@@ -50,6 +52,7 @@ namespace DoanWinform
             this.lblDangNhap.Size = new System.Drawing.Size(121, 20);
             this.lblDangNhap.TabIndex = 0;
             this.lblDangNhap.Text = "Tên Đăng Nhập";
+            this.lblDangNhap.BackColor = Color.Transparent;
             // 
             // txtAccountName
             // 
@@ -82,6 +85,7 @@ namespace DoanWinform
             this.lblMatKhau.Size = new System.Drawing.Size(77, 20);
             this.lblMatKhau.TabIndex = 0;
             this.lblMatKhau.Text = "Mật Khẩu";
+            this.lblMatKhau.BackColor = Color.Transparent;
             // 
             // txtPassword
             // 
@@ -103,6 +107,7 @@ namespace DoanWinform
             this.lblHeader.Size = new System.Drawing.Size(190, 37);
             this.lblHeader.TabIndex = 6;
             this.lblHeader.Text = "Đăng Nhập";
+            this.lblHeader.BackColor = Color.Transparent;
             // 
             // btnCancel
             // 

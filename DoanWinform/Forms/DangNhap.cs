@@ -31,9 +31,6 @@ namespace DoanWinform
             {
                 ex.Message.ToString();
             }
-            lblDangNhap.BackColor = Color.Transparent;
-            lblMatKhau.BackColor = Color.Transparent;
-            lblHeader.BackColor = Color.Transparent;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

@@ -62,9 +62,10 @@ namespace DoanWinform
             this.maNV = maNV;
             LoginToolStripMenuItem.Visible = false;
             ManageToolStripMenuItem.Visible = true;
-            ReportToolStripMenuItem.Visible = true;
             RegisterToolStripMenuItem.Visible = false;
             LogoutToolStripMenuItem.Visible = true;
+            toolStripBtnCustomer.Enabled = true;
+            toolStripBtnProduct.Enabled = true;
         }
 
         // Đăng ký
@@ -89,10 +90,11 @@ namespace DoanWinform
         {
             dbContext = null;
             ManageToolStripMenuItem.Visible = false;
-            ReportToolStripMenuItem.Visible = false;
             RegisterToolStripMenuItem.Visible = true;
             LogoutToolStripMenuItem.Visible = false;
             LoginToolStripMenuItem.Visible = true;
+            toolStripBtnCustomer.Enabled = false;
+            toolStripBtnProduct.Enabled = false;
         }
 
         // khách hàng
@@ -144,6 +146,11 @@ namespace DoanWinform
             {
                 frm.Activate();
             }
+        }
+
+        private void ExitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

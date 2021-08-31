@@ -1,4 +1,5 @@
-﻿using DoanWinform.Models;
+﻿using DoanWinform.Forms;
+using DoanWinform.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -176,7 +177,8 @@ namespace DoanWinform
         // hiện report
         private void btnShowInvoice_Click(object sender, EventArgs e)
         {
-
+            frmReportHoaDon frm = new frmReportHoaDon(cbbInvoiceID.Text.Trim());
+            frm.ShowDialog();
         }
 
         // thêm hóa đơn
@@ -272,7 +274,13 @@ namespace DoanWinform
                         hoaDon.MaKH = cbbCustomerID.Text;
                         hoaDon.NgayLapHD = dtpOrderDate.Value;
 
+                        dbContext.SaveChanges();
                         listInvoice = dbContext.HoaDons.ToList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy hóa đơn!");
+                        return;
                     }
 
                     int maCTHD;
@@ -321,6 +329,38 @@ namespace DoanWinform
             {
 
             }
+        }
+
+        // Xóa 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maHD = cbbInvoiceID.Text.Trim();
+                HoaDon hoaDon = listInvoice.FirstOrDefault(m => m.MaHD == maHD);
+
+                if (hoaDon != null)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa hóa đơn này?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        dbContext.HoaDons.Remove(hoaDon);
+                        dbContext.SaveChanges();
+
+                        listCTHD = dbContext.CTHDs.ToList();
+                        listInvoice = dbContext.HoaDons.ToList();
+                        cbbInvoiceID.DataSource = listInvoice;
+
+                        MessageBox.Show("Đã xóa hóa đơn!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy hóa đơn!");
+                }
+            }
+            catch (Exception) { }
         }
     }
 }
