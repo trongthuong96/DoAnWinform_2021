@@ -48,6 +48,7 @@ namespace DoanWinform.Forms
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label1.Location = new System.Drawing.Point(157, 27);
@@ -55,14 +56,13 @@ namespace DoanWinform.Forms
             this.label1.Size = new System.Drawing.Size(101, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đăng Ký";
-            this.label1.BackColor = Color.Transparent;
             // 
             // txtAccountName
             // 
             this.txtAccountName.Location = new System.Drawing.Point(192, 104);
             this.txtAccountName.Name = "txtAccountName";
             this.txtAccountName.Size = new System.Drawing.Size(100, 20);
-            this.txtAccountName.TabIndex = 1;
+            this.txtAccountName.TabIndex = 2;
             // 
             // btnRegister
             // 
@@ -77,46 +77,48 @@ namespace DoanWinform.Forms
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(103, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên Tài Khoản";
-            this.label2.BackColor = Color.Transparent;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(112, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mật Khẩu";
-            this.label3.BackColor = Color.Transparent;
             // 
             // txtPassword1
             // 
             this.txtPassword1.Location = new System.Drawing.Point(192, 141);
             this.txtPassword1.Name = "txtPassword1";
+            this.txtPassword1.PasswordChar = '*';
             this.txtPassword1.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword1.TabIndex = 4;
+            this.txtPassword1.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(87, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Nhập Lại Mật Khẩu";
-            this.label4.BackColor = Color.Transparent;
             // 
             // txtPassword2
             // 
             this.txtPassword2.Location = new System.Drawing.Point(192, 179);
             this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword2.TabIndex = 6;
+            this.txtPassword2.TabIndex = 4;
             // 
             // btnCancel
             // 
@@ -127,24 +129,23 @@ namespace DoanWinform.Forms
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(103, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Mã Nhân Viên";
-            this.label5.BackColor = Color.Transparent;
             // 
             // txtStaffID
             // 
             this.txtStaffID.Location = new System.Drawing.Point(192, 69);
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.Size = new System.Drawing.Size(100, 20);
-            this.txtStaffID.TabIndex = 9;
+            this.txtStaffID.TabIndex = 1;
             // 
             // frmRegister
             // 

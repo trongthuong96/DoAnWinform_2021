@@ -44,6 +44,7 @@ namespace DoanWinform
             // lblDangNhap
             // 
             this.lblDangNhap.AutoSize = true;
+            this.lblDangNhap.BackColor = System.Drawing.Color.Transparent;
             this.lblDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDangNhap.ForeColor = System.Drawing.Color.Black;
             this.lblDangNhap.Location = new System.Drawing.Point(57, 124);
@@ -52,7 +53,6 @@ namespace DoanWinform
             this.lblDangNhap.Size = new System.Drawing.Size(121, 20);
             this.lblDangNhap.TabIndex = 0;
             this.lblDangNhap.Text = "Tên Đăng Nhập";
-            this.lblDangNhap.BackColor = Color.Transparent;
             // 
             // txtAccountName
             // 
@@ -77,6 +77,7 @@ namespace DoanWinform
             // lblMatKhau
             // 
             this.lblMatKhau.AutoSize = true;
+            this.lblMatKhau.BackColor = System.Drawing.Color.Transparent;
             this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMatKhau.ForeColor = System.Drawing.Color.Black;
             this.lblMatKhau.Location = new System.Drawing.Point(84, 179);
@@ -85,7 +86,6 @@ namespace DoanWinform
             this.lblMatKhau.Size = new System.Drawing.Size(77, 20);
             this.lblMatKhau.TabIndex = 0;
             this.lblMatKhau.Text = "Mật Khẩu";
-            this.lblMatKhau.BackColor = Color.Transparent;
             // 
             // txtPassword
             // 
@@ -93,12 +93,14 @@ namespace DoanWinform
             this.txtPassword.Location = new System.Drawing.Point(198, 173);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(161, 26);
             this.txtPassword.TabIndex = 1;
             // 
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
+            this.lblHeader.BackColor = System.Drawing.Color.Transparent;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.ForeColor = System.Drawing.Color.Red;
             this.lblHeader.Location = new System.Drawing.Point(113, 42);
@@ -107,7 +109,6 @@ namespace DoanWinform
             this.lblHeader.Size = new System.Drawing.Size(190, 37);
             this.lblHeader.TabIndex = 6;
             this.lblHeader.Text = "Đăng Nhập";
-            this.lblHeader.BackColor = Color.Transparent;
             // 
             // btnCancel
             // 
